@@ -1,18 +1,20 @@
 class Solution {
     public int minimumPushes(String word) {
-        HashMap<Character,Integer> h = new HashMap<>();
-        for(char c : word.toCharArray()){
-            h.put(c, h.getOrDefault(c,0) + 1);
+        int[] freq = new int[26];
+        char[] chars = word.toCharArray();
+        for(char c : chars){
+            freq[c - 'a']++;
         }
-        List<Integer> freq = new ArrayList<>(h.values());
-        Collections.sort(freq, Collections.reverseOrder());
-        int n = freq.size();
-        int quo = n/8;//1
-        int rem = n% 8;//2
+        Arrays.sort(freq);
         int ans = 0;
-        for(int i = 0 ;i<n ;i++){
-            ans += freq.get(i) * (i/8 + 1);
+        int val = 0;
+
+        for (int i = 25; i >= 0; i--) {
+            if (freq[i] == 0) break;
+            ans += freq[i] * (val / 8 + 1);
+            val++;
         }
+
         return ans;
     }
 }
