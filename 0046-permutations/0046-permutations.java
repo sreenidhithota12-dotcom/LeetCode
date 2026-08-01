@@ -1,24 +1,28 @@
 class Solution {
-        void find(int[] nums, List<List<Integer>> sol,boolean freq[], List<Integer> ans){
-        if(ans.size() == nums.length){
+        void find(int[] nums, List<List<Integer>> sol,int ind){
+        if(ind == nums.length){
+            List<Integer> ans = new ArrayList<>();
+            for(int n : nums){
+                ans.add(n);
+            }
             sol.add( new ArrayList<>(ans));
             return;
         }
-        for(int i = 0 ;i < nums.length ; i++){
-            if(!freq[i]){
-            freq[i]=true;
-            ans.add(nums[i]);
-            find(nums,sol,freq,ans);
-            ans.remove(ans.size() - 1);
-            freq[i]=false;
-            }
+        for(int i = ind ;i < nums.length ; i++){
+            swap(nums,ind,i);
+            find(nums,sol,ind+1);
+            swap(nums,ind,i);
         }
     }
+        void swap(int[] nums, int i, int j){
+            int temp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = temp;
+            return;
+        }
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> sol = new ArrayList<>();
-        List<Integer> ans = new ArrayList<>();
-        boolean freq[] = new boolean[nums.length];
-        find(nums,sol,freq,ans);
+        find(nums,sol,0);
         return sol;
     }
 }
