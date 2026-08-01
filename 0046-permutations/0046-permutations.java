@@ -5,7 +5,7 @@ class Solution {
             for(int n : nums){
                 ans.add(n);
             }
-            sol.add( new ArrayList<>(ans));
+            sol.add(ans);
             return;
         }
         for(int i = ind ;i < nums.length ; i++){
