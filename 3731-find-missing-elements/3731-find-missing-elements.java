@@ -1,6 +1,6 @@
 class Solution {
     public List<Integer> findMissingElements(int[] nums) {
-        int s=nums.length;
+      
         int mini=Integer.MAX_VALUE ;
         int maxi=Integer.MIN_VALUE ;
         List<Integer> sol = new ArrayList<>();
@@ -9,7 +9,6 @@ class Solution {
             
             maxi=Math.max(maxi,x);
         }
-        if(maxi - mini + 1 == s) return new ArrayList<>();
         int[] found = new int [maxi+1];
         for(int x : nums){
             found[x]++;
