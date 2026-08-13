@@ -21,19 +21,15 @@ class Solution {
         q.add(root);
         while(!q.isEmpty()){
                 int num = q.size();
-                //List<Integer> li = new ArrayList<>();
-                Double sum=0.0;
-                //int c=0;
+                double sum=0.0;
                 for(int i=0;i<num;i++){
                     TreeNode x = q.poll();
-                   // li.add(x.val);
                     sum+=x.val;
-                    //c++;
                     if(x.left != null) q.add(x.left);
                     if(x.right != null) q.add(x.right);
                     
                 }
-                sol.add(sum/num);
+                sol.add((double)sum/num);
         }
     
         return sol;
