@@ -11,16 +11,14 @@ class Solution {
             }
             else l2.add(nums[i]);
         }
-        for(int i=0;i<n;i++){
-            if(l1.size()!=0){
-                nums[i]=l1.get(0);
-                l1.remove(0);
-
-            }
-            else{
-                nums[i]=l2.get(0);
-                l2.remove(0);
-            }
+        int i =0;
+        for(int k=0;k<l1.size();k++){
+            nums[i]=l1.get(k);
+            i++;
+        }
+        for(int k=0;k<l2.size();k++){
+            nums[i]=l2.get(k);
+            i++;
         }
         return nums;
     }
