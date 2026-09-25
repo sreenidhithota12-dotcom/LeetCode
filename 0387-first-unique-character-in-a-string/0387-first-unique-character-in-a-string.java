@@ -4,10 +4,12 @@ class Solution {
         for (char ch : s.toCharArray()) {
             freq[ch - 'a']++;
         }
-        int i=0;
-        for(char ch : s.toCharArray()){
-            if(freq[ch - 'a']==1) return i;
-            i++;
+        
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            if (freq[ch - 'a'] == 1) {
+                return i;
+            }
         }
         return -1;
     }
