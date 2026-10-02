@@ -6,7 +6,7 @@ class Solution {
             char c1=s.charAt(i);
             if (c1 == 'a' || c1=='e' ||c1=='i'|| c1=='o' ||c1=='u'||
             c1 == 'A' || c1=='E' ||c1=='I'|| c1=='O' ||c1=='U') cnt1++;
-            c1=s.charAt(n-1-i);
+            c1=s.charAt(n/2+i);
             if (c1 == 'a' || c1=='e' ||c1=='i'|| c1=='o' ||c1=='u'||
             c1 == 'A' || c1=='E' ||c1=='I'|| c1=='O' ||c1=='U') cnt1--;
         }
