@@ -4,7 +4,6 @@ class Solution {
         int n = temperatures.length;
         int []ans= new int[n];
         ans[n-1]=0;
-        if(n==1) return ans;
         st.push(n-1);
         for(int i=n-2;i>=0;i--){
             while(!st.isEmpty() && temperatures[st.peek()]<=temperatures[i]){
@@ -15,7 +14,6 @@ class Solution {
             }
             else {
                 ans[i]=st.peek()-i;
-
             }
             st.push(i);
         }
