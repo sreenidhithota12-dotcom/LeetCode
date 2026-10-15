@@ -3,10 +3,15 @@ class Solution {
         int n = nums.size();
         int ans = 0;
         for(int i=0;i<n;i++){
-            Set<Integer> s = new HashSet<>();
+            int count=0;
+            int vis[] = new int[101];
             for(int j=i;j<n;j++){
-                s.add(nums.get(j));
-                ans+= s.size()*s.size();
+                int val=nums.get(j);
+                if(vis[val]==0){
+                    vis[val]=1;
+                    count++;
+                }
+                ans+=count*count;
             }
         }
         return ans;
